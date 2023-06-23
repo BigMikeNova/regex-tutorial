@@ -1,8 +1,8 @@
-# An Introduction to the match() Function in Regular Expressions
+# An Introduction to the Regex Function Match HTML
 
 ## Summary
 
-This document provides an overview of the match() function in regular expressions. Regular expressions, or regex, are powerful tools for pattern matching and searching in strings. The match() function is a method available in various programming languages that allows you to find matches for a regex pattern within a given string. This guide explores the different components and features of the match() function and provides examples to illustrate its usage.
+Regular expressions (regex) are powerful tools for pattern matching and searching within text. The regex /^<([a-z]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)$/ is specifically designed to match an HTML tag, ensuring it follows the correct syntax and structure.
 
 ## Table of Contents
 
@@ -19,35 +19,35 @@ This document provides an overview of the match() function in regular expression
 
 ### Anchors
 
-Anchors are regex elements used to match specific positions in a string. They do not consume any characters themselves but assert the position relative to the surrounding text. Common anchors include the caret ^, which matches the start of a line, and the dollar sign $, which matches the end of a line.
+^ (caret) asserts the start of the string. It ensures that the HTML tag must start at the beginning of the line.
 
 ### Quantifiers
 
-Quantifiers allow you to specify the number of times a character or group should appear in a string. For example, the asterisk * matches zero or more occurrences, while the plus sign + matches one or more occurrences. Other quantifiers include the question mark ? for optional occurrences and curly braces {} for exact repetitions.
++ (plus) is a quantifier that matches the preceding element one or more times. In this case, it applies to [a-z] and ensures that the tag name consists of one or more lowercase letters.
 
 ### Grouping Constructs
 
-Grouping constructs allow you to create subexpressions within a regex. They are denoted by parentheses (). Grouping can be used for capturing matches, creating backreferences, or applying quantifiers to a group of characters. For example, the regex (ab)+ matches one or more occurrences of the string ab.
+() (parentheses) are used to create capturing groups. In this regex, the first capturing group ([a-z]+) captures the tag name (e.g., div, p, span).
 
 ### Bracket Expressions
 
-Bracket expressions, also known as character classes, allow you to define a set of characters that can match at a particular position. For example, [abc] matches either an a, b, or c. You can also use ranges, negation, and predefined character classes within bracket expressions.
+[^<] is a negative bracket expression that matches any character except <. It ensures that there are no additional opening angle brackets inside the tag.
 
 ### Character Classes
 
-Character classes provide a shorthand way to match certain groups of characters. For instance, \d matches any digit character, \w matches any word character, and \s matches any whitespace character. Negated character classes are also available, such as \D for non-digit characters.
+[a-z] is a character class that matches any lowercase letter. It is used to define the valid characters for the tag name.
 
 ### The OR Operator
 
-The OR operator, represented by the pipe symbol |, allows you to specify alternative patterns. It matches either the pattern on the left or the pattern on the right. For example, cat|dog matches either "cat" or "dog".
+| (pipe) acts as the OR operator in regex. It separates two alternative patterns. In this case, it separates the pattern for a closing tag >(.*)<\/\1> from the pattern for a self-closing tag \s+\/>.
 
 ### Flags
 
-Flags are optional modifiers that can be applied to a regex pattern to change its behavior. Common flags include i for case-insensitive matching, g for global matching, and m for multiline matching. Flags are usually specified as an argument to the match() function.
+There are no flags specified in this regex.
 
 ### Character Escapes
 
-Character escapes are used to match special characters or represent characters that have special meanings in regex. For example, . normally matches any character, but to match a literal dot character, you can escape it with a backslash \.. Common escape sequences include \n for a newline and \t for a tab.
+\/ is an escape sequence that matches a forward slash character. It is used to match the closing tag </ in the pattern >(.*)<\/\1>.
 
 ## Author
 
