@@ -19,27 +19,27 @@ Regular expressions (regex) are powerful tools for pattern matching and searchin
 
 ### Anchors
 
-^ (caret) asserts the start of the string. It ensures that the HTML tag must start at the beginning of the line.
+`^` (caret) asserts the start of the string. It ensures that the HTML tag must start at the beginning of the line.
 
 ### Quantifiers
 
-+ (plus) is a quantifier that matches the preceding element one or more times. In this case, it applies to [a-z] and ensures that the tag name consists of one or more lowercase letters.
+`+` (plus) is a quantifier that matches the preceding element one or more times. In this case, it applies to [a-z] and ensures that the tag name consists of one or more lowercase letters.
 
 ### Grouping Constructs
 
-() (parentheses) are used to create capturing groups. In this regex, the first capturing group ([a-z]+) captures the tag name (e.g., div, p, span).
+`()` (parentheses) are used to create capturing groups. In this regex, the first capturing group ([a-z]+) captures the tag name (e.g., div, p, span).
 
 ### Bracket Expressions
 
-[^<] is a negative bracket expression that matches any character except <. It ensures that there are no additional opening angle brackets inside the tag.
+`[^<]` is a negative bracket expression that matches any character except <. It ensures that there are no additional opening angle brackets inside the tag.
 
 ### Character Classes
 
-[a-z] is a character class that matches any lowercase letter. It is used to define the valid characters for the tag name.
+`[a-z]` is a character class that matches any lowercase letter. It is used to define the valid characters for the tag name.
 
 ### The OR Operator
 
-| (pipe) acts as the OR operator in regex. It separates two alternative patterns. In this case, it separates the pattern for a closing tag >(.*)<\/\1> from the pattern for a self-closing tag \s+\/>.
+`|` (pipe) acts as the OR operator in regex. It separates two alternative patterns. In this case, it separates the pattern for a closing tag >(.*)<\/\1> from the pattern for a self-closing tag \s+\/>.
 
 ### Flags
 
@@ -47,7 +47,7 @@ There are no flags specified in this regex.
 
 ### Character Escapes
 
-\/ is an escape sequence that matches a forward slash character. It is used to match the closing tag </ in the pattern >(.*)<\/\1>.
+`\/` is an escape sequence that matches a forward slash character. It is used to match the closing tag </ in the pattern >(.*)<\/\1>.
 
 ## Author
 
